@@ -36,6 +36,7 @@
       <script src="assets/js/html5shiv.js"></script>
     <![endif]-->
 
+
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
@@ -63,6 +64,7 @@
               <li class="active"><a href="#">Home</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
+              <li><a onClick="viewResume()">Resume</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -162,15 +164,19 @@
     <script src="assets/js/bootstrap-carousel.js"></script>
     <script src="assets/js/bootstrap-typeahead.js"></script>
 
-    <script type="text/javascript" src="scripts/Resume.js" ></script>
+    <script type="text/javascript" src="scripts/ResumeLoader.js" ></script>
+    <script type="text/javascript" src="scripts/ResumeFormatter.js" ></script>
     <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.7.min.js"></script>
     
     <script type="text/javascript">
+
+      var myResume = {};
 
       function loadStuff() {
         $("#loading").show();
 
         function finishedLoading(resume) {
+          myResume = resume;
           $("#loading").hide();
         }
 
@@ -178,8 +184,13 @@
           $("#loading").hide();
         }
 
-        var myResume = new Resume();
-        myResume.beginLoading(finishedLoading, failedToLoad);
+        var resumeLoader = new ResumeLoader();
+        resumeLoader.beginLoading(finishedLoading, failedToLoad);
+    }
+
+    function viewResume() {
+        var resumeFormatter = new ResumeFormatter();  
+        resumeFormatter.showResume(myResume);
     }
     
     </script> 

@@ -5,6 +5,8 @@ body {
     background-color: silver;
     /*font-family: "Helvetica-Neue", Georgia, Arial, sans-serif;*/
     /*font-family:  Georgia, 'Times New Roman', Times, serif;*/
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-weight: 300;
 
     color:#222222;
     /*font-weight: 600;*/
