@@ -1,123 +1,191 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Mike Fullerton</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <head>
+        <meta charset="utf-8">
+        <title>Mike Fullerton</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-    <!-- Le styles -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+        <link href="assets/css/bootstrap.css" rel="stylesheet">
+        <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+        <link href="mikes-styles.css" rel="stylesheet">
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="assets/js/html5shiv.js"></script>
+        <![endif]-->
 
-    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="mikes-styles.css" rel="stylesheet">
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="assets/js/html5shiv.js"></script>
-    <![endif]-->
+        <!-- Fav and touch icons -->
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+        <link rel="shortcut icon" href="assets/ico/favicon.png">
 
-    <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-                    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
-                                   <link rel="shortcut icon" href="assets/ico/favicon.png">
-  
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
-
-      <!-- <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css"> -->
-      <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">  
+        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">  
     </head>
 
-  <body onload="loadStuff()">
+    <body onload="handleDocumentLoaded()">
 
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span1 myrow">
-          <!-- empty -->
-        </div>
+        <div id="loading"><i class="icon-spinner icon-spin icon-large"></i><span> Loading Mike's Stuff...</span></div>
+                            
+        <div class="container-fluid hidden" id="root">
+            <div class="row-fluid">
+                <div class="span2 myrow">
+                    <div class="left-menu sharedStyle">
+                        <div class="boxy"></div>
+                        <div id="menubox-0" class="menuBox sharedStyle" onclick="selectPage(0, undefined)">Home<span class="menu-caret" id="caret-0">•</span></div>
+                        <div id="menubox-1" class="menuBox sharedStyle" onclick="selectPage(1, undefined)">Technical<span class="menu-caret" id="caret-1">•</span></div>
+                        <div id="menubox-2" class="menuBox sharedStyle" onclick="selectPage(2, undefined)">Personal<span class="menu-caret"id="caret-2">•</span></div>
+                        <div id="menubox-3" class="menuBox sharedStyle" onclick="selectPage(3, viewResume)">Printable Resume<span class="menu-caret" id="caret-3">•</span></div>
+                    </div>
+                    <!-- empty -->
+                </div>
+    
+                <div class="span10 myrow">
+                    <div class="hero-unit sharedStyle">
+                        <div class="boxy"></div>
+    
+                        <div class="headline-box">
+                          <h3 id="cover-title"></h3>
+                          <p id="cover-subtitle"></p>
+                        </div>
+                    
+                        <div class="landing-content">
+                            <div class="landing-content-text" id="content-0">
+                                <div id="cover-photo"></div>
+
+                            </div> <!-- landing-content-text -->
+                            <div class="landing-content-text" id="content-1">
+                            </div>
+                            <div class="landing-content-text" id="content-2">
+                            </div>
+                            <div class="landing-content-text" id="content-3">
+                            </div>
+                        </div> <!-- landing content -->
+                            
+                            
+                        <div class="icon-box">
+                          <a  href="mailto:hello@mikefullerton.com"><i class="icon-envelope-alt icon-muted icon-large"></i></a>
+                          <a  href="http://www.twitter.com/mikefullerton"><i class="icon-twitter icon-muted  icon-large"></i></a>
+                          <a  href="http://code.fishlamp.com"><i class="icon-github icon-muted  icon-large"></i></a>
+                          <a  href="http://www.linkedin.com/in/michaelfullerton/"><i class="icon-linkedin icon-muted  icon-large"></i></a>
+                          <a  href="https://plus.google.com/u/0/112666022377486113167"><i class="icon-google-plus icon-muted icon-large"></i></a>
+                        </div> <!-- icon-box -->             
+                    </div> <!-- hero unit -->
+                </div> <!-- span10 -->
+
+                <div class="span4 myrow">
+                  <!-- empty -->
+                </div>
+
+            </div> <!-- row fluid -->
+        </div><!-- container-fluid -->
+
         
-        <div class="span10 myrow">
-          <div class="hero-unit">
-          <div class="boxy"></div>
-
-            <div class="headline-box">
-              <h3>Mike Fullerton</h3>
-              <p>Software Architect and Entrepeneur</p>
-            </div>
-        
-            <img align="right" src="images/mike.png" class="img-polaroid"/>
-
-            <div class="landing-content">
-              <div class="landing-content-text">
-                <p>Mike is a life long developer and has worked at many companies, but most notably at Apple and Microsoft.</p>
-                <p>At Apple he designed and refactored code for the MacApp framework, beginning a long and fanatical career of abstracting code.</p><p>After Apple, he worked for a dozen or so years as a senior software engineer at Microsoft. His favorite role at Microsoft was working as developer lead on Entourage in the Mac Business Unit (Entourage was later renamed to Outlook for Mac). He also worked on Internet Explorer for Mac and Outlook Express for Mac. Mike later worked on Hotmail and Windows Live Calendar, where he learned a heck of a lot about SQL and .Net, and also enough Javascript and Css to be dangerous.</p>
-
-                <p>Mike is now focused on iOS development and building <a href="http://greentongue.com">GreenTongue Software.</a> He has architected <a href="http://fishlamp.com">FishLamp</a>, a framework for building apps on iOS and Mac OS X.</p>
-
-                <p>Mike loves string cheese *, spaceships, writing amazing apps, and writing about himself in the third person.</p>
-
-                <br/>
-                <br/>
-                <p><i>* Will not work for string cheese but <b>will</b> work for a spaceship. Maybe.</i></p>
-
-                <!-- <p>Hello there - </p>
-                <p>I'm a lifelong software developer. I've been writing software for more than twenty years.</p>
-                </p>
-                <p>I wrote a lot of code for <a href="http://www.microsoft.com/" title="" target="">Microsoft</a> (mostly in the Mac Office group) and I worked in the Framework Developer Tools group at <a href="http://www.apple.com/" title="" target="">Apple, Inc.</a>.</p>
-                <p>I founded <a href="http://www.greentongue.com" title="" target="">GreenTongue Software</a> in 2009.</p>
-                <p>I write code nearly everyday - mostly for <a href="http://www.fishlamp.com" title="" target="">FishLamp</a>.</p>
-                <p>I also do a lot of other entrepreneur stuff too. Insert hat wearing metaphor here.</p>
-                <p>This picture was taken at The <a href="http://www.yosemitepark.com/the-ahwahnee.aspx" title="" target="">Ahwahnee Hotel</a> in Yosemite, one of my favorite places in the whole world.</p>
-                <p>If you want to chat, shoot me an <a href="mailto:hello@mikefullerton.com">e-mail.</a> I'm actually a friendly guy. I won't mind.</p>
-                <p>-Mike</p> -->
-              </div>
-
-            </div> 
-<div class="icon-box">
-  <a  href="mailto:hello@mikefullerton.com"><i class="icon-envelope-alt icon-muted icon-large"></i></a>
-  <a  href="http://www.twitter.com/mikefullerton"><i class="icon-twitter icon-muted  icon-large"></i></a>
-  <a  href="http://code.fishlamp.com"><i class="icon-github icon-muted  icon-large"></i></a>
-  <a  href="http://www.linkedin.com/in/michaelfullerton/"><i class="icon-linkedin icon-muted  icon-large"></i></a>
-  <a  href="https://plus.google.com/u/0/112666022377486113167"><i class="icon-google-plus icon-muted icon-large"></i></a>
-</div>              
-          </div>
-
- 
-            
-        </div>
-        
-        <div class="span4 myrow">
-          <!-- empty -->
-          
-        </div>
-      
-    </div><!--/.fluid-container-->
-
- 
-      <footer class="footer">
+        <footer class="footer">
         <!-- <hr/> -->
         <!-- <div class="right-footer"><p>&copy; Mike Fullerton 2013</p></div> -->
-      </footer>
+        </footer>
+ 
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/bootstrap-transition.js"></script>
-    <script src="assets/js/bootstrap-alert.js"></script>
-    <script src="assets/js/bootstrap-modal.js"></script>
-    <script src="assets/js/bootstrap-dropdown.js"></script>
-    <script src="assets/js/bootstrap-scrollspy.js"></script>
-    <script src="assets/js/bootstrap-tab.js"></script>
-    <script src="assets/js/bootstrap-tooltip.js"></script>
-    <script src="assets/js/bootstrap-popover.js"></script>
-    <script src="assets/js/bootstrap-button.js"></script>
-    <script src="assets/js/bootstrap-collapse.js"></script>
-    <script src="assets/js/bootstrap-carousel.js"></script>
-    <script src="assets/js/bootstrap-typeahead.js"></script>
+        <!-- Javascript -->
+    
+    
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/bootstrap-transition.js"></script>
+        <script src="assets/js/bootstrap-alert.js"></script>
+        <script src="assets/js/bootstrap-modal.js"></script>
+        <script src="assets/js/bootstrap-dropdown.js"></script>
+        <script src="assets/js/bootstrap-scrollspy.js"></script>
+        <script src="assets/js/bootstrap-tab.js"></script>
+        <script src="assets/js/bootstrap-tooltip.js"></script>
+        <script src="assets/js/bootstrap-popover.js"></script>
+        <script src="assets/js/bootstrap-button.js"></script>
+        <script src="assets/js/bootstrap-collapse.js"></script>
+        <script src="assets/js/bootstrap-carousel.js"></script>
+        <script src="assets/js/bootstrap-typeahead.js"></script>
+    
+        <script type="text/javascript" src="scripts/ParseMgr.js" ></script>
+        <script type="text/javascript" src="scripts/ResumeLoader.js" ></script>
+        <script type="text/javascript" src="scripts/ResumeFormatter.js" ></script>
+        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.7.min.js"></script>
+        
+        <script type="text/javascript">
+    
+            var myResume = {};
+            var pagecount = 4;
+    
+            function hideStuff() {
+/*                 $("#cover-photo").hide(); */
+                $("#root").addClass("hidden");    
+                $("#loading").show();
+            }
+            
+            function showStuff() {
+                $("#root").removeClass("hidden");    
+                $("#cover-photo").append("<img src=\"images/mike.png\" class=\"img-polaroid\"/>");
+                $("#loading").hide();
+            }
+            
+            function selectPage(pageNumber, action) {
+                for(var i = 0; i < pagecount; i++) {
+                    if(pageNumber == i)  {
+                        $("#content-" + i).show();    
+                        $("#menubox-" + i).addClass("selectedBox");
+                        $("#menubox-" + i).removeClass("unselectedBox");
+                        $("#caret-" + i).removeClass("hidden");
+                    }
+                    else {
+                        $("#content-" + i).hide();    
+                        $("#menubox-" + i).addClass("unselectedBox");
+                        $("#menubox-" + i).removeClass("selectedBox");
+                        $("#caret-" + i).addClass("hidden");
+                    }
+                }
+                if(action != undefined) {
+                    action();
+                }
+            }
+    
+            function handleDocumentLoaded() {
+                hideStuff();
+                
+                function finishedLoading(resume) {
+                    myResume = resume;
+                    
+                    $("#cover-title").text(resume.coverpage.title);
+                    $("#cover-subtitle").text(resume.coverpage.subtitle);
+                    
+                    var lines = resume.coverpage.lines;
+                    for(var i = 0; i < lines.length; i++) {
+                         $("#content-0").append("<p>" + lines[i] + "</p>");   
+                    }
+                    
+                    var resumeFormatter = new ResumeFormatter(); 
+                    $("#content-3").append(resumeFormatter.formatResumeContent(myResume));
+                
+                    showStuff();
+                    selectPage(0);
+                }
+    
+                function failedToLoad(error) {
+                    showStuff();
+                }
+    
+                var resumeLoader = new ResumeLoader();
+                resumeLoader.beginLoading(finishedLoading, failedToLoad);
+            }
+        
+            function viewResume() {
+                window.open("resume.html", "_self", "", "");
+                
+                
+                
+/*                 resumeFormatter.showResume(myResume); */
+            }
 
-  </body>
+        </script>
+    </body>
 </html>

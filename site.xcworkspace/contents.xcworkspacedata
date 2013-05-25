@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:assets">
+   </FileRef>
+   <FileRef
+      location = "group:CNAME">
+   </FileRef>
+   <FileRef
+      location = "group:font-awesome">
+   </FileRef>
+   <FileRef
+      location = "group:images">
+   </FileRef>
+   <FileRef
+      location = "group:index-old.html">
+   </FileRef>
+   <FileRef
+      location = "group:index.html">
+   </FileRef>
+   <FileRef
+      location = "group:mikes-styles.css">
+   </FileRef>
+   <FileRef
+      location = "group:old">
+   </FileRef>
+   <FileRef
+      location = "group:plaintext.css">
+   </FileRef>
+   <FileRef
+      location = "group:resume.html">
+   </FileRef>
+   <FileRef
+      location = "group:scripts">
+   </FileRef>
+</Workspace>

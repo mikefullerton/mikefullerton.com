@@ -1,47 +1,63 @@
 
 function HtmlBuilder() {
-    this.string = {};
-    this.attributes = new Array();
-    this.stack = new Array()
+    _string = "";
+    _attributes = new Array();
+    _stack = new Array()
 
     this.addHeader = function addHeader() {
-        this.string = "<!DOCTYPE html><html lang=\"en\">";
+        _string = "<!DOCTYPE html><html lang=\"en\">";
     }
     this.openElement = function openElement(element) {
-        this.stack.push(element);
+        _stack.push(element);
 
-        this.string += "<" + element;
+        _string += "<" + element;
 
-        if(this.attributes.length) {
-            for(var i = 0; i < this.attributes.length; i++) {
-                this.string += this.attributes[i];
+        if(_attributes.length) {
+            for(var i = 0; i < _attributes.length; i++) {
+                _string += _attributes[i];
             }
-            this.attributes = new Array();
+            _attributes = new Array();
         }
 
-        this.string += ">";
+        _string += ">";
     }
     this.closeElement = function closeElement() {
-        var element = this.stack.pop();
+        var element = _stack.pop();
 
-        this.string += "</" + element + ">";
+        _string += "</" + element + ">";
     }
     this.addElement = function addElement(element, value) {
         this.openElement(element)
-        this.string += value;
+        _string += value;
         this.closeElement();
     }
     this.pushAttribute = function addAttribute(attr, value) {
         var str = " " + attr + "=\"" + value + "\"";
-        this.attributes.push(str);
+        _attributes.push(str);
+    }
+    this.toString = function() {
+        return _string;
+    }
+    this.forgetOpenElement = function() {
+        _stack.pop();
+    }
+    this.appendString = function(string) {
+        _string += string;
     }
 }
 
 
 function ResumeFormatter() {
     
-    this.showResume = function showResume(resume) {
-        this.resume = resume;
+    this.formatResumeContent = function(resume) {
+        var html = new HtmlBuilder();
+        html.addElement("p", resume.person.firstName + " " + resume.person.lastName);
+        html.addElement("p", resume.person.email);
+        
+        return html.toString();
+    }
+    
+    this.openResumeInNewWindow = function(resume) {
 
         var title = resume.person.firstName + " " + resume.person.lastName + "\'s Resume";
         var newWindow = window.open("", title,"", true);
@@ -53,27 +69,19 @@ function ResumeFormatter() {
         html.pushAttribute("rel", "stylesheet");
         html.pushAttribute("href", "plaintext.css");
         html.openElement("link");
-        html.stack.pop(); // link doesn't close
+        html.forgetOpenElement(); // link doesn't close
         html.addElement("title", title);
 
         html.closeElement();
         html.openElement("body");
-        html.addElement("p", resume.person.firstName + " " + resume.person.lastName);
-        html.addElement("p", resume.person.email);
+
+        html.appendString(this.formatResumeContent(resume));
 
         html.closeElement()
         html.closeElement();
 
-        // var html = "<!DOCTYPE html><html lang=\"en\"><html><head>";
-        // html += "<title>" + title + "</title>"
-        // html += "<link rel=\"stylesheet\" href=\"plaintext.css\">";
-        // html += "</head><body>";
-        // html += "<p>" + resume.person.firstName + " " + resume.person.lastName + "</p>";
-        // html += "<p>" + resume.person.email + "</p>"
-        // html += "</body></html>"
-
         newWindow .document.open()
-        newWindow .document.write(html.string);
+        newWindow .document.write(html.toString());
         newWindow .document.close()
     }
 }

@@ -23,22 +23,70 @@ body {
 }
 }
 
+.hidden {
+    visibility: hidden;
+}
+
+.span2 {
+    margin: 0;
+}
+
 .myrow {
 }
 
-.hero-unit {
+/*
+.left-menu {
+    position: relative;
+}
+*/
+
+.sharedStyle {
     background-color: #222222;
     border-radius: 0px;
-    padding:0px;
-    /*height: 340px;*/
-    /*overflow: auto;*/
     color: lightgray;
-    padding:40px;
     font-size: 1.0em;
-    /*font-weight: 550;*/
+}
+
+.menu-caret {
+    font-size: 140%;
+    font-weight: bold;
+    float: right;
+}
+
+.left-menu {
+    position: relative;
+}
+
+.menuBox {
+    padding:10px;
+    padding-top:12px;
+    padding-bottom:8px;
+    border-bottom: silver 1px solid;
+    font-weight: bold;
+    font-size: 80%;
+}
+
+.selectedBox {
+/*     background-color:#336699; */
+    color:white;
+    background-color: #222;
+/*     color: #222; */
+}
+.selectedBox a {
+    color: #222;
+    font-weight: bold;
+}
+
+.unselectedBox {
+    background-color: #444;
+    color:white;
+}
+
+.hero-unit {
+    padding:0px;
+    padding:40px;
     min-height: 500px;
     position: relative;
-    
 }
 
 .boxy {
@@ -55,6 +103,21 @@ body {
     background-color: #ee1e00;
     }
 
+#loading {
+    margin-top: 140px;
+    width:300px;
+    height: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+}
+
+#loading span {
+    margin: 0px;
+    padding:0px;
+    padding-top:3px;
+}
+
 .hero-unit h3 {
     color: white;
     margin-bottom:4px;
@@ -62,6 +125,7 @@ body {
 
 .hero-unit img {
     margin-left:10px;
+    margin-bottom: 10px;
     float:right;
 
 /*    position: absolute;
