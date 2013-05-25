@@ -43,7 +43,7 @@
                                    <link rel="shortcut icon" href="assets/ico/favicon.png">
   </head>
 
-  <body>
+  <body onload="loadStuff()">
 
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
@@ -139,6 +139,7 @@
 
       <footer>
         <p>&copy; Company 2013</p>
+         <div id="loading"><i class="icon-spinner icon-spin icon-large"></i> Loading Resume...</div>
       </footer>
 
     </div><!--/.fluid-container-->
@@ -159,6 +160,29 @@
     <script src="assets/js/bootstrap-collapse.js"></script>
     <script src="assets/js/bootstrap-carousel.js"></script>
     <script src="assets/js/bootstrap-typeahead.js"></script>
+
+    <script type="text/javascript" src="Resume.js" ></script>
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.7.min.js"></script>
+    
+    <script type="text/javascript">
+
+      function loadStuff() {
+        $("#loading").show();
+
+        function finishedLoading(resume) {
+          $("#loading").hide();
+        }
+
+        function failedToLoad(error) {
+          $("#loading").hide();
+        }
+
+        var myResume = new Resume();
+        myResume.beginLoading(finishedLoading, failedToLoad);
+    }
+    
+    </script> 
+
 
   </body>
 </html>

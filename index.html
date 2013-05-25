@@ -86,11 +86,7 @@
       <footer class="footer">
         <!-- <hr/> -->
         <!-- <div class="right-footer"><p>&copy; Mike Fullerton 2013</p></div> -->
-        <div id="loading"><i class="icon-spinner icon-spin icon-large"></i> Loading Resume...</div>
       </footer>
-    <script type="text/javascript" src="Resume.js" ></script>
-    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.7.min.js"></script>
-    
 
     <!-- Le javascript
     ================================================== -->
@@ -108,25 +104,6 @@
     <script src="assets/js/bootstrap-collapse.js"></script>
     <script src="assets/js/bootstrap-carousel.js"></script>
     <script src="assets/js/bootstrap-typeahead.js"></script>
-
-    <script type="text/javascript">
-
-      function loadStuff() {
-        $("#loading").show();
-
-        function finishedLoading(resume) {
-          $("#loading").hide();
-        }
-
-        function failedToLoad(error) {
-          $("#loading").hide();
-        }
-
-        var myResume = new Resume();
-        myResume.beginLoading(finishedLoading, failedToLoad);
-    }
-    
-    </script> 
 
   </body>
 </html>
