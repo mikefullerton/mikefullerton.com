@@ -2,6 +2,7 @@
 
 function ResumeLoader() {
 
+/*
     _resume = {};
     _successCallback = {};
     _failureCallback = {};
@@ -39,14 +40,17 @@ function ResumeLoader() {
             _failureCallback("wrong results loading resume");
         }
     }
+*/
    
-    this.beginLoading = function beginLoading(success, failure) {
+    this.beginLoading = function(success, failure) {
+/*
         _successCallback = success;
         _failureCallback = failure;
     
+*/
         ParseMgr().getInstance().findObjectsOfType("FLResume", 
-            handleResumeLoaded,
-            _failureCallback);
+            success,
+            failure);
         
     }
 
