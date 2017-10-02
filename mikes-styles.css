@@ -46,9 +46,9 @@ body {
 
 .hero-unit img {
     position: absolute;
-    right: -20px;
-    bottom: -60px;
-    width: 40%;
+    right: 20px;
+    top: 20px;
+    width: 30%;
 /*    
     float: right;
     right: 30px;
